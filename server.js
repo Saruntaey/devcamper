@@ -1,6 +1,6 @@
 const express = require("express");
-const path = require("path");
 const dotenv = require("dotenv");
+const logger = require("./middleware/logger");
 
 // load env var
 dotenv.config({ path: "./config/config.env" });
@@ -10,6 +10,8 @@ const PORT = process.env.PORT || "8080";
 const bootcamps = require("./routes/bootcamps.js");
 
 const server = express();
+
+server.use(logger);
 
 // mount routers
 server.use("/api/v1/bootcamps", bootcamps);
