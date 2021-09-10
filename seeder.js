@@ -37,12 +37,15 @@ async function importData() {
     try {
         // load model
         const Bootcamp = require("./models/bootcamp");
+        const Course = require("./models/course");
 
         // read JSON file
         const bootcamps = JSON.parse(fs.readFileSync(`${__dirname}/_data/bootcamps.json`, "utf-8"));
+        const course = JSON.parse(fs.readFileSync(`${__dirname}/_data/courses.json`, "utf-8"));
 
         // save data to DB
         await Bootcamp.create(bootcamps);
+        await Course.create(course);
 
         console.log("Data imported...");
         // process.exit();
@@ -56,9 +59,11 @@ async function deleteData() {
     try {
         // load model
         const Bootcamp = require("./models/bootcamp");
+        const Course = require("./models/course");
 
         // remove data from DB
         await Bootcamp.deleteMany();
+        await Course.deleteMany();
         
         console.log("Data destroyed...");
         // process.exit();

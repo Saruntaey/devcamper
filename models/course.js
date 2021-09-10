@@ -23,7 +23,7 @@ const courseSchema = new Schema({
     minimumSkill: {
         type: String,
         required: [true, "Please add a minimum skill"],
-        enum: ["beginner", "intermidiate", "advanced"],
+        enum: ["beginner", "intermediate", "advanced"],
     },
     scholarshipAvailable: {
         type: Boolean,
