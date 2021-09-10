@@ -36,7 +36,7 @@ const bootcampSchema = new Schema({
     },
     address: {
         type: String,
-        require: [true, "Please add an address"],
+        required: [true, "Please add an address"],
     },
     location: {
         // GeoJSON Point
