@@ -45,7 +45,8 @@ async function importData() {
         await Bootcamp.create(bootcamps);
 
         console.log("Data imported...");
-        process.exit();
+        // process.exit();
+        await mongoose.connection.close();
     } catch (err) {
         console.log(err);
     }
@@ -60,7 +61,8 @@ async function deleteData() {
         await Bootcamp.deleteMany();
         
         console.log("Data destroyed...");
-        process.exit();
+        // process.exit();
+        await mongoose.connection.close();
     } catch (err) {
         console.log(err);
     }
