@@ -2,10 +2,10 @@ const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const connectDB = require("./config/db");
+const errorHandeler = require("./middleware/error");
 
 // load env var
 dotenv.config({ path: "./config/config.env" });
-const PORT = process.env.PORT || "8080";
 
 connectDB();
 
@@ -25,6 +25,10 @@ if (process.env.NODE_ENV === "development") {
 // mount routers
 server.use("/api/v1/bootcamps", bootcamps);
 
+// handle error
+server.use(errorHandeler);
+
+const PORT = process.env.PORT || "8080";
 const app = server.listen(
     PORT, 
     () => console.log(`Serving in ${process.env.NODE_ENV} mode on port ${PORT}`) 
