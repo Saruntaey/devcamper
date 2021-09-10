@@ -3,7 +3,11 @@ const errorHandeler = (err, req, res, next) => {
     console.log(err.stack)
 
     // JSON response
-    res.status(500).json({ success: false, error: err.message, data: null });
+    res
+        .status(err.status || 500)
+        .json({ success: false, 
+                error: err.message || "Server error", 
+                data: null });
 };
 
 module.exports = errorHandeler;
