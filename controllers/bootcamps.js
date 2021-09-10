@@ -8,7 +8,6 @@ const geocoder = require("../utils/geocoder");
 // @access  Public
 exports.getBootcamps = asyncHandeler(async (req, res, next) => {
    
-    console.log(req.query);
     // copy req.query
     let reqQuery = {...req.query};
 
@@ -25,7 +24,6 @@ exports.getBootcamps = asyncHandeler(async (req, res, next) => {
     queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
     
     // finding resource
-    console.log(queryStr);
     let query = Bootcamp.find(JSON.parse(queryStr));
 
     // select fields
