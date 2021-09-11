@@ -2,6 +2,7 @@ const Course = require("../models/course");
 const Bootcamp = require("../models/bootcamp");
 const ErrorResponse = require("../utils/errorResponse");
 const asyncHandeler = require("../middleware/async");
+const { findByIdAndUpdate } = require("../models/bootcamp");
 
 // @desc    Get courses
 // @route   GET /api/v1/courses
@@ -57,6 +58,25 @@ exports.addCourse = asyncHandeler(async (req, res, next) => {
     }
 
     const course = await Course.create(req.body);
+  
+    res.status(200).json({ 
+        success: true,
+        data: course,
+     });
+});
+
+// @desc    Update course
+// @route   PUT /api/v1/courses/:id
+// @access  Private
+exports.updateCourse = asyncHandeler(async (req, res, next) => {
+    const course = await Course.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidators: true,
+    });
+
+    if (!course) {
+        return next(new ErrorResponse(`No course with the id of ${req.params.id}`, 400));
+    }
   
     res.status(200).json({ 
         success: true,
