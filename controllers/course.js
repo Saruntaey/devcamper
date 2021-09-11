@@ -2,7 +2,6 @@ const Course = require("../models/course");
 const Bootcamp = require("../models/bootcamp");
 const ErrorResponse = require("../utils/errorResponse");
 const asyncHandeler = require("../middleware/async");
-const { findByIdAndUpdate } = require("../models/bootcamp");
 
 // @desc    Get courses
 // @route   GET /api/v1/courses
