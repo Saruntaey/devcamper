@@ -38,6 +38,11 @@ const courseSchema = new Schema({
         ref: "Bootcamp",
         required: true,
     },
+    user: {
+        type: Schema.ObjectId,
+        ref: "User",
+        required: true,
+    }
 });
 
 // static method to get avg of course tuitions
