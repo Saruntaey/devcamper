@@ -1,6 +1,7 @@
 const express = require("express");
 const {
     getReviews,
+    getReview
 } = require("../controllers/review");
 
 const advancedResults = require("../middleware/advancedResults");
@@ -14,5 +15,9 @@ router
         path: "bootcamp",
         select: "name description"
     }), getReviews);
+
+router
+    .route("/:id")
+    .get(getReview);
 
 module.exports = router;
