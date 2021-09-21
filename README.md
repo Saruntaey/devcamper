@@ -1,6 +1,10 @@
 # Devcamper API
 
-> Bakend API for DevCamper application, which is a bootcamp directory website
+> Bakend API for DevCamper application, which is a bootcamp directory website. 
+
+>This project created by follow along udemy course <https://www.udemy.com/course/nodejs-api-masterclass/> 
+
+> See migration to golang <https://github.com/Saruntaey/devcamper-go>
 
 ## Usage
 
