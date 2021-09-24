@@ -6,7 +6,7 @@
 
 > See migration to golang <https://github.com/Saruntaey/devcamper-go>
 
-> demo website <https://sarun.work> 
+> demo website <https://devcamper-nodejs.sarun.work> 
 
 ## Usage
 
